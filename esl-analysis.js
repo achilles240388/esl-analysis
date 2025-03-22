@@ -1,4 +1,6 @@
-javascript:(function () {
+(function() {
+    console.log("Script loaded and executed!");
+
     const API_TOKEN = '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';
 
     async function analyzeNotesWithHuggingFace(notes) {
@@ -48,13 +50,10 @@ javascript:(function () {
     }
 
     function cleanExample(example) {
-        // Fix capitalization (e.g., "i" -> "I")
         example = example.replace(/\bi\b/g, 'I');
-        // Add missing periods if the sentence ends without punctuation
         if (!/[.!?]$/.test(example)) {
             example += '.';
         }
-        // Capitalize the first letter of the sentence
         example = example.charAt(0).toUpperCase() + example.slice(1);
         return example;
     }
